@@ -18,6 +18,7 @@ services:
     - ./env/db.env
     volumes:
       - ./db:/var/lib/mysql
+      #- db-data:/var/lib/mysql
     depends_on:
       - webphp
     deploy:
@@ -28,3 +29,5 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+#volumes:
+#  db-data:

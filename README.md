@@ -20,7 +20,7 @@ Proyecto para desplegar los servicios de la plataforma Tikwiki con Docker.
 # Despliegue de la plataforma con docker-compose.
 -   Clonamos el repositorio.
 ```
-git clone -b develop https://github.com/westerus/stack-tikiwiki.git
+git clone https://github.com/westerus/stack-tikiwiki.git
 ```
 ```
 cd stack-tikiwiki/
@@ -31,11 +31,11 @@ git submodule update --init --recursive
 ```
 -   Modificamos los permisos del directorio de publicación.
 ```
-docker run --rm -ti -v $PWD/src:/var/www/html westerus/tikiwiki-webphp:dev sh -c 'echo f| sh setup.sh'
+docker run --rm -ti -v $PWD/src:/var/www/html westerus/tikiwiki-webphp:latest sh -c 'echo f| sh setup.sh'
 ```
 -   Iniciamos el stack.
 ```
-docker-compose -f docker-compose.dev.yml up -d
+docker-compose -f docker-compose.yml up -d
 ```
 -   Accedemos a la tikiwiki.
 ```
