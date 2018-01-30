@@ -1,0 +1,30 @@
+version: "3.3"
+
+services:
+  webphp:
+    image: westerus/tikiwiki-webphp:latest
+    volumes:
+      - ./src:/var/www/html
+      - ./conf/tikiwiki.ini:/usr/local/etc/php/conf.d/tikiwiki.ini
+      - ./conf/memcached.ini:/usr/local/etc/php/conf.d/memcached.ini
+    ports:
+      - 80:80
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+  db:
+    image: mariadb:10.1
+    env_file:
+    - ./env/db.env
+    volumes:
+      - ./db:/var/lib/mysql
+    depends_on:
+      - webphp
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+  mem:
+    image: memcached:alpine
+    deploy:
+      placement:
+        constraints: [node.role == manager]
