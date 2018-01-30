@@ -1,6 +1,6 @@
-FROM php:5.6-fpm
+FROM php:5.6-apache
 
-LABEL Maintainer="Ernesto Pérez <eperez@isotrol.com> Isotrol S.A." \
+LABEL Maintainer="Westerus <westerus@gmail.com>" \
       Name="TikiWiki" \
       Description="Imágen con los cambios realizados sobre Tikiwiki 17.x" \
       Version="1.0.0"
@@ -37,6 +37,9 @@ RUN set -x; \
       libsasl2-dev \
       zlib1g-dev \
       imagemagick \
+      unzip \
+      curl \
+      git \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so \
     && docker-php-ext-install -j$(nproc) \
@@ -45,7 +48,13 @@ RUN set -x; \
       mysql \
       pdo_mysql \
       ldap \
+      zip \
+      calendar \
+      mysqli \
+      opcache \
+      mbstring \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && pecl install memcached-2.2.0 \
-    && docker-php-ext-enable memcached
+    && docker-php-ext-enable memcached \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
