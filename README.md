@@ -1,4 +1,5 @@
 ![logo](https://global.download.synology.com/download/Package/img/Docker/1.11.2-0270/thumb_256.png?style=centerme)
+![logo](https://manishnamdeo.files.wordpress.com/2014/04/tikiwiki.gif)
 
 # Proyectos de contenedores Dockers TikiWiki.
 Proyecto para desplegar los servicios de la plataforma Tikwiki con Docker.
@@ -47,7 +48,8 @@ git submodule update --remote
 ```
 # Variables de entorno.
 -   Fichero "env/db.env"
-| Nombre   | Descripción                                                     |
+
+| Nombre                          | Descripción                              |
 |:-------------------------------:|:-----------------------------------------|
 | MYSQL_RANDOM_ROOT_PASSWORD=yes  | Genera un password aleatorio para root.  |
 | MYSQL_DATABASE=tikidb           | Nombre de la base de datos.              |
