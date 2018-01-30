@@ -32,7 +32,7 @@ git submodule update --init --recursive
 ```
 docker run --rm -ti -v $PWD/src:/var/www/html westerus/tikiwiki-webphp:dev sh -c 'echo f| sh setup.sh'
 ```
--   Inciamos el stack.
+-   Iniciamos el stack.
 ```
 docker-compose -f docker-compose.dev.yml up -d
 ```
@@ -45,6 +45,14 @@ Para actualizar el fuente "src/" ejecutar:
 ```
 git submodule update --remote
 ```
+# Variables de entorno.
+-   Fichero "env/db.env"
+| Nombre   | Descripción                                                     |
+|:-------------------------------:|:-----------------------------------------|
+| MYSQL_RANDOM_ROOT_PASSWORD=yes  | Genera un password aleatorio para root.  |
+| MYSQL_DATABASE=tikidb           | Nombre de la base de datos.              |
+| MYSQL_USER=tikiuser             | Usuario para la base de datos.           |
+| MYSQL_PASSWORD=tikipass         | Password para el usuario de la db.       |
 
 # Documentación:
 [GitLab Community Edition documentation](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/README.md)
