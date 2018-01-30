@@ -15,7 +15,8 @@ Proyecto para desplegar los servicios de la plataforma Tikwiki con Docker.
 | /hooks   | Carpeta donde almacenar los scripts git hooks.                  |
 | /php     | Dockerfile de la imagen tikiwiki-webphp                         |
 | /src     | Directorio con los fuentes de tikiwiki compilados con composer. |
-| /test    | Directorio donde almacenar los test linter, unicode, etc..
+| /ssl     | Directorio donde almacenar los certificados SSL.                |
+| /test    | Directorio donde almacenar los test linter, unicode, etc..      |
 
 # Despliegue de la plataforma con docker-compose.
 -   Clonamos el repositorio.
