@@ -5,6 +5,8 @@ services:
     image: tikiwiki-webphp:dev
     volumes:
       - ./src:/var/www/html
+    ports:
+      - 80:80
     deploy:
       placement:
         constraints: [node.role == manager]
