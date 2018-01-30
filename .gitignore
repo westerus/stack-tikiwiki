@@ -1,6 +1,7 @@
 # Directory #
 #############
 db/*
+#env/*
 
 # Compiled source #
 ###################
