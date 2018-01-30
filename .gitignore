@@ -1,6 +1,6 @@
 # Directory #
 #############
-db/*
+#db/
 env/*.env
 
 # Compiled source #
