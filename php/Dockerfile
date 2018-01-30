@@ -62,4 +62,7 @@ RUN set -x; \
     && docker-php-ext-enable memcached \
     && docker-php-ext-enable memcache \
     && docker-php-ext-enable xdebug \
+    && a2enmod rewrite expires ssl \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+    EXPOSE 80 443
