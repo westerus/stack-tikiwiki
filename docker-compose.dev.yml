@@ -5,7 +5,8 @@ services:
     image: westerus/tikiwiki-webphp:dev
     volumes:
       - ./src:/var/www/html
-      - ./conf/*.ini:/usr/local/etc/php/conf.d/
+      - ./conf/tikiwiki.ini:/usr/local/etc/php/conf.d/
+      - ./conf/memcached.ini:/usr/local/etc/php/conf.d/
     ports:
       - 80:80
     deploy:
