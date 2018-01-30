@@ -1,4 +1,4 @@
-version: "3"
+version: "3.3"
 
 services:
   webphp:
@@ -18,12 +18,9 @@ services:
       - MYSQL_USER=tikiuser
       - MYSQL_PASSWORD=tikipass
     volumes:
-      - db-data:/var/lib/mysql
+      - ./db:/var/lib/mysql
     depends_on:
       - webphp
     deploy:
       placement:
         constraints: [node.role == manager]
-
-volumes:
-  db-data:
