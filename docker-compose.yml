@@ -12,11 +12,8 @@ services:
         constraints: [node.role == manager]
   db:
     image: mariadb:10.1
-    environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=tikidb
-      - MYSQL_USER=tikiuser
-      - MYSQL_PASSWORD=tikipass
+    env_file:
+    - ./env/db.env
     volumes:
       - ./db:/var/lib/mysql
     depends_on:
