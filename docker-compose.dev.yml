@@ -7,8 +7,12 @@ services:
       - ./src:/var/www/html
       - ./conf/tikiwiki.ini:/usr/local/etc/php/conf.d/tikiwiki.ini
       - ./conf/memcached.ini:/usr/local/etc/php/conf.d/memcached.ini
+      - ./conf/default-ssl.conf:/etc/apache2/sites-enabled/default-ssl.conf
+      - ./ssl/webserver.crt:/etc/ssl/certs/webserver.crt
+      - ./ssl/webserver.key:/etc/ssl/private/webserver.key
     ports:
       - 80:80
+      - 443:443
     deploy:
       placement:
         constraints: [node.role == manager]
