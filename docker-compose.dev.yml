@@ -21,3 +21,8 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+  mem:
+    image: memcached:alpine
+    deploy:
+      placement:
+        constraints: [node.role == manager
