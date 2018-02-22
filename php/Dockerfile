@@ -40,6 +40,7 @@ RUN set -x; \
       unzip \
       curl \
       git \
+    && a2enmod ssl \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so \
     && docker-php-ext-install -j$(nproc) \
